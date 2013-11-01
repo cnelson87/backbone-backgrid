@@ -10,7 +10,8 @@
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 465px;
+	//height: 465px;
+	height: auto;
 	padding: 0;
 	overflow: auto;
 	border: 0;
@@ -22,7 +23,6 @@
 	background-color: transparent;
 	border: 1px solid #DDD;
 	border-collapse: collapse;
-	border-radius: 4px;
 
 	th, td {
 		height: 20px;
@@ -32,8 +32,8 @@
 		line-height: 20px;
 		text-align: left;
 		text-overflow: ellipsis;
-		white-space: nowrap;
-		vertical-align: middle;
+		//white-space: nowrap;
+		vertical-align: top;
 		border: 1px solid #DDD;
 	}
 
@@ -51,8 +51,12 @@
 		background-color: #f9f9f9;
 	}
 
-	&.backgrid-striped tbody tr:nth-child(odd) td,
-	&.backgrid-striped tbody tr:nth-child(odd) th {
+	// &.backgrid-striped tbody tr:nth-child(odd) td,
+	// &.backgrid-striped tbody tr:nth-child(odd) th {
+	// 	background-color: #f9f9f9;
+	// }
+	tbody tr:nth-child(even) td,
+	tbody tr:nth-child(even) th {
 		background-color: #f9f9f9;
 	}
 
@@ -66,7 +70,7 @@
 	}
 
 	td.editor,
-	tbody tr:nth-child(odd) td.editor {
+	tbody tr:nth-child(even) td.editor {
 		background-color: rgba(82, 168, 236, 0.1);
 		outline: 1px solid rgba(82, 168, 236, 0.8);
 		outline-offset: -1px;
