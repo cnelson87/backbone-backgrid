@@ -1,0 +1,1102 @@
+/* RESET / NORMALIZE / REBUILD
+-------------------------------------------------------*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strike, strong, sub, sup, var,
+b, i, u, center, hr,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+body {
+  color: #010101;
+  font-family: Arial, Verdana, sans-serif;
+  /* uncomment appropriate line to set default type size */
+  /* font-size: 100%; /* 16px */
+  /* font-size: 87.5%; /* 14px */
+  font-size: 75.0%;
+  /* 12px */
+  /* font-size: 62.5%; /* 10px */
+  line-height: 1.0;
+  background: #fff;
+}
+
+/* a, a:link, a:visited */
+a {
+  color: #990000;
+  text-decoration: none;
+  -webkit-transition: color .2s, background-color .2s;
+  -moz-transition: color .2s, background-color .2s;
+  -o-transition: color .2s, background-color .2s;
+  transition: color .2s, background-color .2s;
+}
+
+/* a:focus, a:hover, a:visited:hover, a:active */
+a:focus, a:hover {
+  color: #cc0000;
+  text-decoration: underline;
+}
+
+p, ul, ol, dl, table, address {
+  font-size: 1.0em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+li {
+  margin: 0 0 8px 20px;
+}
+
+dt {
+  font-weight: bold;
+  margin: 0 0 2px 0;
+}
+
+dd {
+  margin: 0 0 8px 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+td {
+  vertical-align: top;
+}
+
+h1 {
+  color: #333333;
+  font-family: 'Droid Sans', Arial, sans-serif;
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 36px;
+  margin: 0 0 18px 0;
+}
+
+h2, .h2 {
+  color: #333333;
+  font-family: 'Droid Sans', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0 0 12px 0;
+}
+
+h3, .h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 18px;
+  margin: 0 0 8px 0;
+}
+
+h4, .h4 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  margin: 0 0 6px 0;
+}
+
+h5, .h5 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 14px;
+  margin: 0 0 4px 0;
+}
+
+h6, .h6 {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 14px;
+  margin: 0 0 2px 0;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+i, em {
+  font-style: italic;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+blockquote {
+  /* note: must not leave any whitespace at the beginning of a blockquote in markup - Safari will render it  */
+  color: #333333;
+  font-size: 20px;
+  font-family: Georgia, Times, serif;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 0 0 1.2em 0;
+  padding: 0 20px;
+}
+
+/* UTILITIES
+-------------------------------------------------------*/
+/**
+*	general styles
+**/
+html.no-js .hide-no-js {
+  display: none;
+}
+
+html.js-enabled .hide-js-enabled {
+  display: none;
+}
+
+big, .big {
+  font-size: 16px;
+}
+
+small, .small, .note {
+  font-size: 10px;
+}
+
+.alert, .error, .important, .required {
+  color: #990000;
+  font-weight: bold;
+}
+
+.clear {
+  clear: both;
+}
+
+.offscreen {
+  position: fixed;
+  left: -9999px;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.normal {
+  font-weight: normal;
+  text-transform: none;
+}
+
+.first-line {
+  font-size: 14px;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
+.upper {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+hr, div.hr {
+  clear: both;
+  height: 1px;
+  border-top: 1px dotted #999;
+  margin: 0 0 18px 0;
+  overflow: hidden;
+}
+
+div.hr hr {
+  display: none;
+}
+
+/*** /general styles ***/
+/**
+*	list styles
+**/
+nav ul, nav ol {
+  list-style: none;
+}
+
+ul.disc-list {
+  list-style-type: disc;
+}
+
+ul.circle-list {
+  list-style-type: circle;
+}
+
+ul.square-list {
+  list-style-type: square;
+}
+
+ol.numbered-list {
+  list-style: decimal;
+}
+
+ol.lower-alpha {
+  list-style: lower-alpha;
+}
+
+ol.upper-alpha {
+  list-style: upper-alpha;
+}
+
+ol.lower-roman {
+  list-style: lower-roman;
+}
+
+ol.upper-roman {
+  list-style: upper-roman;
+}
+
+ul.plain-list, ol.plain-list {
+  list-style: none;
+}
+
+/*** /list styles ***/
+/**
+*	img styles
+**/
+img.block {
+  display: block;
+  margin: 0 0 12px 0;
+}
+
+img.inline {
+  display: inline;
+  margin: 0 0.2em;
+  vertical-align: bottom;
+}
+
+img.inset-left {
+  float: left;
+  margin: 0 20px 12px 0;
+}
+
+img.inset-right {
+  float: right;
+  margin: 0 0 12px 20px;
+}
+
+/* generic img classes, no inherent style */
+/*** /img styles ***/
+/**
+*	link styles
+**/
+/*** /link styles ***/
+/**
+*	misc styles
+**/
+/*** /misc styles ***/
+/* FORM ELEMENTS
+-------------------------------------------------------*/
+/**
+*	basic form elements
+**/
+fieldset {
+  display: block;
+  width: auto;
+  margin: 0 0 18px 0;
+}
+
+legend {
+  display: none;
+}
+
+label, span.label {
+  display: inline-block;
+  color: #333333;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-top: 2px;
+  /* matches input padding-top for vertical alignment */
+}
+
+label.disabled {
+  color: #cccccc;
+}
+
+input, select, textarea {
+  color: #333333;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+  box-shadow: none;
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+::input-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+/* start text inputs, selects, textareas */
+input:not([type=checkbox]):not([type=radio]):not([type=submit]),
+select,
+textarea {
+  width: 140px;
+  height: 24px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+select {
+  width: auto;
+  min-width: 80px;
+}
+
+textarea {
+  height: 38px;
+  line-height: 16px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]):focus,
+select:focus,
+textarea:focus {
+  border-color: #333;
+  outline: none;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit])[disabled=disabled],
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).disabled,
+select[disabled=disabled], select.disabled,
+textarea[disabled=disabled], textarea.disabled {
+  color: #ccc;
+  border-color: #dedede;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).invalid,
+select.invalid,
+textarea.invalid {
+  border-color: #c00;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-med,
+select.input-med {
+  /* default */
+  width: 140px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-xshort,
+select.input-xshort {
+  width: 40px;
+  min-width: 40px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-short,
+select.input-short {
+  width: 80px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-long,
+select.input-long {
+  width: 240px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-xlong,
+select.input-xlong {
+  width: 360px;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-auto,
+select.input-auto {
+  width: auto;
+  min-width: auto;
+}
+
+textarea.textarea-med {
+  width: 280px;
+  height: 70px;
+  /* 16px * 4 line-height + 6px padding & border */
+}
+
+textarea.textarea-lrg {
+  width: 500px;
+  height: 102px;
+  /* 16px * 6 line-height + 6px padding & border */
+}
+
+/* end text inputs, selects, textareas */
+/* start checkbox & radio inputs */
+input[type=checkbox],
+input[type=radio] {
+  /* setting exact size removes IE padding, makes uniform cross-browser */
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+  padding-top: 0;
+}
+
+input[type=checkbox][disabled=disabled],
+input[type=radio][disabled=disabled],
+input[type=checkbox].disabled,
+input[type=radio].disabled {
+  cursor: default;
+}
+
+input[type=checkbox][disabled=disabled] + label,
+input[type=radio][disabled=disabled] + label,
+input[type=checkbox].disabled + label,
+input[type=radio].disabled + label {
+  color: #ccc;
+}
+
+/* end checkbox & radio inputs */
+/* start buttons */
+input[type=submit],
+input[type=reset],
+input[type=button],
+button {
+  cursor: pointer;
+  min-width: 88px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: #ccc;
+  border: 1px solid #333;
+  border-radius: 3px;
+  padding: 4px 12px;
+  overflow: visible;
+  /* IE width fix, no affect on other browsers */
+  -webkit-transition: color .2s, background-color .2s;
+  -moz-transition: color .2s, background-color .2s;
+  -ms-transition: color .2s, background-color .2s;
+  -o-transition: color .2s, background-color .2s;
+  transition: color .2s, background-color .2s;
+}
+
+input[type=submit]:focus, input[type=submit]:hover,
+input[type=reset]:focus, input[type=reset]:hover,
+input[type=button]:focus, input[type=button]:hover,
+button:focus, button:hover {
+  background: #dedede;
+  outline: none;
+}
+
+input.btn, input.sm-btn {
+  color: #fff;
+  background: #900;
+}
+
+input.btn:focus, input.btn:hover,
+input.sm-btn:focus, input.sm-btn:hover {
+  background: #c00;
+}
+
+input.alt-btn, input.sm-alt-btn {
+  color: #900;
+  background: #fff;
+  border-color: #900;
+}
+
+input.alt-btn:focus, input.alt-btn:hover,
+input.sm-alt-btn:focus, input.sm-alt-btn:hover {
+  color: #333;
+  background: #fff;
+  border-color: #333;
+}
+
+input.sm-btn, input.sm-alt-btn {
+  min-width: auto;
+  font-size: 11px;
+  font-weight: normal;
+  padding: 1px 8px;
+}
+
+/* end buttons */
+/* start misc */
+.form-note {
+  /* note next to an input field */
+  display: inline-block;
+  color: #666;
+  font-size: 11px;
+  line-height: 15px;
+  margin: 5px 0 0 5px;
+}
+
+.form-message {
+  /* message below an input field */
+  display: block;
+  color: #666;
+  font-size: 11px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+
+input + input, input + select, input + textarea,
+select + input, select + select, select + textarea,
+textarea + input, textarea + select, textarea + textarea {
+  margin-left: 5px;
+}
+
+/* end misc */
+/*** /basic form elements ***/
+/**
+*	fieldset - list classes
+**/
+/* text inputs, selects, textareas */
+ol.horizontal-fields,
+ol.vertical-fields,
+ol.inline-fields {
+  list-style: none;
+  margin: 0;
+}
+
+ol.horizontal-fields > li,
+ol.vertical-fields > li,
+ol.inline-fields > li {
+  min-height: 24px;
+  /* matches input height */
+  margin: 0 0 8px 0;
+}
+
+ol.horizontal-fields > li > label,
+ol.horizontal-fields > li > span.label {
+  width: 120px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+ol.horizontal-fields.label-width-short > li > label,
+ol.horizontal-fields.label-width-short > li > span.label,
+ol.horizontal-fields > li > label.width-short,
+ol.horizontal-fields > li > span.label.width-short {
+  width: 80px;
+}
+
+ol.horizontal-fields.label-width-long > li > label,
+ol.horizontal-fields.label-width-long > li > span.label,
+ol.horizontal-fields > li > label.width-long,
+ol.horizontal-fields > li > span.label.width-short {
+  width: 160px;
+}
+
+ol.horizontal-fields.label-width-auto > li > label,
+ol.horizontal-fields.label-width-auto > li > span.label,
+ol.horizontal-fields > li > label.width-auto,
+ol.horizontal-fields > li > span.label.width-short {
+  width: auto;
+}
+
+ol.horizontal-fields.label-align-left > li > label,
+ol.horizontal-fields.label-align-left > li > span.label,
+ol.horizontal-fields > li > label.align-left,
+ol.horizontal-fields > li > span.label.align-left {
+  text-align: left;
+}
+
+ol.horizontal-fields div.form-message {
+  margin-left: 130px;
+  /* matches label width + margin */
+}
+
+ol.horizontal-fields.label-width-short div.form-message {
+  margin-left: 90px;
+}
+
+ol.horizontal-fields.label-width-long div.form-message {
+  margin-left: 170px;
+}
+
+ol.horizontal-fields ol.cb-rb-fields {
+  display: inline-block;
+  vertical-align: top;
+  margin: 2px 0 -8px 0;
+}
+
+ol.vertical-fields > li > label,
+ol.vertical-fields > li > span.label {
+  display: block;
+  margin: 0 0 2px 0;
+}
+
+ol.inline-fields > li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+ol.inline-fields > li.full-width {
+  display: block;
+  margin-right: 0;
+}
+
+ol.inline-fields > li > label,
+ol.inline-fields > li > span.label {
+  margin-right: 5px;
+}
+
+/* checkbox and radio inputs */
+/* use with .vertical-fields or .inline-fields */
+ol.cb-rb-fields {
+  list-style: none;
+  margin: 0;
+}
+
+ol.cb-rb-fields > li {
+  min-height: auto;
+  margin: 0 0 8px 0;
+}
+
+ol.cb-rb-fields input[type=checkbox],
+ol.cb-rb-fields input[type=radio] {
+  float: left;
+}
+
+ol.cb-rb-fields > li > label {
+  display: block;
+  margin: 0 0 0 20px;
+}
+
+ol.vertical-fields.cb-rb-fields > li > label {
+  margin: 0 0 8px 20px;
+}
+
+ol.inline-fields.cb-rb-fields > li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* fieldset/div wrapper for form buttons */
+.form-btns {
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+}
+
+/*** /fieldset classes ***/
+/* LAYOUT
+-------------------------------------------------------*/
+#wrapper {
+  width: 100%;
+  min-width: 960px;
+  /*
+  height: 100%;
+  min-height: 100%;
+  */
+  margin: 0 auto;
+  position: relative;
+}
+
+#header {
+  width: 100%;
+  background: #dedede;
+}
+#header #header-inner {
+  width: 960px;
+  height: 40px;
+  background: #cdcdcd;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+#footer {
+  width: 100%;
+  background: #dedede;
+}
+#footer #footer-inner {
+  width: 960px;
+  height: 40px;
+  background: #cdcdcd;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+#main {
+  width: 100%;
+}
+#main #main-inner {
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+#main #main-inner #content {
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+}
+#main #main-inner.twocols #content {
+  float: left;
+  width: 620px;
+}
+#main #main-inner.twocols #subcol {
+  float: right;
+  width: 200px;
+}
+
+/*
+	backgrid
+	http://github.com/wyuenho/backgrid
+
+	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
+	Licensed under the MIT @license.
+*/
+.backgrid-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 465px;
+  padding: 0;
+  overflow: auto;
+  border: 0;
+}
+
+.backgrid {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border: 1px solid #DDD;
+  border-collapse: collapse;
+  border-radius: 4px;
+}
+.backgrid th, .backgrid td {
+  height: 20px;
+  max-width: 250px;
+  padding: 4px 5px;
+  overflow: hidden;
+  line-height: 20px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid #DDD;
+}
+.backgrid th {
+  font-weight: bold;
+  cursor: pointer;
+}
+.backgrid th a {
+  white-space: nowrap;
+}
+.backgrid thead th {
+  vertical-align: bottom;
+  background-color: #f9f9f9;
+}
+.backgrid.backgrid-striped tbody tr:nth-child(odd) td, .backgrid.backgrid-striped tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+.backgrid tbody tr.empty {
+  font-style: italic;
+  color: gray;
+}
+.backgrid tbody tr.empty td {
+  text-align: center;
+}
+.backgrid td.editor,
+.backgrid tbody tr:nth-child(odd) td.editor {
+  background-color: rgba(82, 168, 236, 0.1);
+  outline: 1px solid rgba(82, 168, 236, 0.8);
+  outline-offset: -1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-duration: 200ms;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  transition-duration: 200ms;
+  -webkit-transition-property: width, outline, background-color;
+  -moz-transition-property: width, outline, background-color;
+  -o-transition-property: width, outline, background-color;
+  transition-property: width, outline, background-color;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+.backgrid td.editor input[type=text] {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.backgrid td.error,
+.backgrid tbody tr:nth-child(odd) td.error {
+  background-color: rgba(255, 210, 77, 0.1);
+  outline: 1px solid #ffd24d;
+}
+.backgrid td.editor :focus,
+.backgrid th.editor :focus {
+  outline: 0;
+}
+.backgrid .sort-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.3em;
+  border: 0;
+  content: "";
+}
+.backgrid .ascending .sort-caret {
+  vertical-align: baseline;
+  border-top: none;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #000000;
+  border-left: 4px solid transparent;
+}
+.backgrid .descending .sort-caret {
+  vertical-align: super;
+  border-top: 4px solid #000000;
+  border-right: 4px solid transparent;
+  border-bottom: none;
+  border-left: 4px solid transparent;
+}
+.backgrid .string-cell,
+.backgrid .uri-cell,
+.backgrid .email-cell,
+.backgrid .string-cell.editor input[type=text],
+.backgrid .uri-cell.editor input[type=text],
+.backgrid .email-cell.editor input[type=text] {
+  text-align: left;
+}
+.backgrid .date-cell,
+.backgrid .time-cell,
+.backgrid .datetime-cell,
+.backgrid .number-cell,
+.backgrid .integer-cell,
+.backgrid .date-cell.editor input[type=text],
+.backgrid .time-cell.editor input[type=text],
+.backgrid .datetime-cell.editor input[type=text],
+.backgrid .number-cell.editor input[type=text],
+.backgrid .integer-cell.editor input[type=text] {
+  text-align: right;
+}
+.backgrid .boolean-cell,
+.backgrid .boolean-cell.editor input[type=checkbox] {
+  text-align: center;
+}
+.backgrid .select-cell {
+  text-align: center;
+}
+.backgrid .select-cell.editor {
+  padding: 0;
+}
+.backgrid .select-cell.editor select {
+  display: block;
+  width: 100%;
+  height: 28px;
+  padding: 4px 5px;
+  margin: 0;
+  line-height: 28px;
+  vertical-align: middle;
+  background-color: white;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.backgrid .select-cell.editor :focus {
+  border: 0;
+  outline: 0;
+}
+.backgrid .select-cell.editor select::-moz-focus-inner,
+.backgrid .select-cell.editor optgroup::-moz-focus-inner,
+.backgrid .select-cell.editor option::-moz-focus-inner,
+.backgrid .select-cell.editor select::-o-focus-inner,
+.backgrid .select-cell.editor optgroup::-o-focus-inner,
+.backgrid .select-cell.editor option::-o-focus-inner {
+  border: 0;
+}
+
+/*
+	backgrid-paginator
+	http://github.com/wyuenho/backgrid
+
+	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
+	Licensed under the MIT @license.
+*/
+.backgrid-paginator {
+  text-align: center;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.backgrid-paginator ul {
+  display: inline-block;
+  margin: 5px 0;
+}
+.backgrid-paginator ul > li {
+  display: inline;
+}
+.backgrid-paginator ul > li > a,
+.backgrid-paginator ul > li > span {
+  float: left;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  text-decoration: none;
+}
+.backgrid-paginator ul > li > a:hover,
+.backgrid-paginator ul > li.active > a,
+.backgrid-paginator ul > li.active > span {
+  background-color: #f5f5f5;
+}
+.backgrid-paginator ul > li.active > a,
+.backgrid-paginator ul > li.active > span {
+  color: #999999;
+  cursor: default;
+}
+.backgrid-paginator ul > li.disabled > span,
+.backgrid-paginator ul > li.disabled > a,
+.backgrid-paginator ul > li.disabled > a:hover {
+  color: #999999;
+  cursor: default;
+}
+
+/*
+	backgrid-filter
+	http://github.com/wyuenho/backgrid
+
+	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
+	Licensed under the MIT @license.
+*/
+.backgrid-filter .close {
+  display: inline-block;
+  float: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -4px;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: text-top;
+}
