@@ -910,6 +910,7 @@ html, body {
   background-color: transparent;
   border: 1px solid #DDD;
   border-collapse: collapse;
+  margin: 0;
 }
 .backgrid th, .backgrid td {
   height: 20px;
