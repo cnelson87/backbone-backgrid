@@ -30,21 +30,39 @@ var Application = {
 
 		var columns = [
 			{
-				name: "id", // The key of the model attribute
-				label: "ID", // The name to display in the header
-				editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-				// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
-				// cell: Backgrid.IntegerCell.extend({
-				// 	orderSeparator: ''
-				// })
-				cell: "integer" // An integer cell is a number cell that displays humanized integers
-			}, {
+				// name: "id", // The key of the model attribute
+				// label: "ID", // The name to display in the header
+				// editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+				// // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+				// // cell: Backgrid.IntegerCell.extend({
+				// // 	orderSeparator: ''
+				// // })
+				// cell: "integer" // An integer cell is a number cell that displays humanized integers
 				name: "name",
+				url: "url",
 				label: "Name",
 				editable: false,
-				// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
-				cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up
+				cell: Backgrid.UriCell.extend({
+					render: function () {
+						this.$el.empty();
+						var formattedUrl = this.formatter.fromRaw(this.model.get(this.column.get("url")));
+						var formattedName = this.formatter.fromRaw(this.model.get(this.column.get("name")));
+						this.$el.append($("<a>", {
+							href: formattedUrl,
+							title: formattedName,
+							target: "_blank"
+						}).text(formattedName));
+						this.delegateEvents();
+						return this;
+					}
+				})
 			}, {
+			// 	name: "name",
+			// 	label: "Name",
+			// 	editable: false,
+			// 	// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
+			// 	cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up
+			// }, {
 				name: "pop",
 				label: "Population",
 				editable: false,
@@ -60,10 +78,32 @@ var Application = {
 				editable: false,
 				cell: "date",
 			}, {
-				name: "url",
-				label: "URL",
+				name: "date",
+				label: "Year",
 				editable: false,
-				cell: "uri" // Renders the value in an HTML anchor element
+				cell: Backgrid.Extension.MomentCell.extend({
+					className: "date-cell",
+					displayFormat: "YYYY"
+				})
+			// }, {
+			// 	name: "name",
+			// 	url: "url",
+			// 	label: "URL",
+			// 	editable: false,
+			// 	cell: Backgrid.UriCell.extend({
+			// 		render: function () {
+			// 			this.$el.empty();
+			// 			var formattedUrl = this.formatter.fromRaw(this.model.get(this.column.get("url")));
+			// 			var formattedName = this.formatter.fromRaw(this.model.get(this.column.get("name")));
+			// 			this.$el.append($("<a>", {
+			// 				href: formattedUrl,
+			// 				title: formattedName,
+			// 				target: "_blank"
+			// 			}).text(formattedName));
+			// 			this.delegateEvents();
+			// 			return this;
+			// 		}
+			// 	})
 			}
 		];
 

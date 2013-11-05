@@ -73,11 +73,13 @@
 					'<%= sourceVendor %>/jquery-1.10.2.min.js',
 					//'<%= sourceVendor %>/jquery.easing-1.3',
 					//'<%= sourceVendor %>/handlebars.runtime-1.0.js',
+					'<%= sourceVendor %>/moment-2.4.0.min.js',
 					'<%= sourceVendor %>/underscore-1.5.2.min.js',
 					'<%= sourceVendor %>/backbone-1.1.0.min.js',
 					'<%= sourceVendor %>/backbone-pageable-1.3.2.min.js',
 					'<%= sourceVendor %>/lunr-0.4.3.min.js',
 					'<%= sourceVendor %>/backgrid-0.2.6.min.js',
+					'<%= sourceVendor %>/backgrid-moment-cell.min.js',
 					'<%= sourceVendor %>/backgrid-paginator.min.js',
 					'<%= sourceVendor %>/backgrid-filter.min.js'
 				],
@@ -147,7 +149,7 @@
 		// Watch files for changes
 		'watch': {
 			options: {
-				livereload: true
+				livereload: 32222
 			},
 			html: {
 				files: '<%= sourceHTML %>/**/*.html',
