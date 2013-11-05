@@ -48,7 +48,8 @@
 			dist: {
 				options: {
 					globals: {
-						"meta-title": "<%= metaTitle %>"
+						"meta-title": "<%= metaTitle %>",
+						"file-name": "<%= fileName %>"
 					},
 					includesDir: '<%= sourceIncludes %>'
 				},
