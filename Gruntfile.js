@@ -79,6 +79,7 @@
 					'<%= sourceVendor %>/backbone-pageable-1.3.2.min.js',
 					'<%= sourceVendor %>/lunr-0.4.3.min.js',
 					'<%= sourceVendor %>/backgrid-0.2.6.min.js',
+					'<%= sourceVendor %>/backgrid-extensions.js',
 					'<%= sourceVendor %>/backgrid-moment-cell.min.js',
 					'<%= sourceVendor %>/backgrid-paginator.min.js',
 					'<%= sourceVendor %>/backgrid-filter.min.js'
@@ -149,7 +150,7 @@
 		// Watch files for changes
 		'watch': {
 			options: {
-				livereload: 32222
+				livereload: true
 			},
 			html: {
 				files: '<%= sourceHTML %>/**/*.html',

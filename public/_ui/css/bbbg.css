@@ -1142,14 +1142,56 @@ html, body {
 	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
 	Licensed under the MIT @license.
 */
-.backgrid-filter .close {
+.backgrid-filter.form-search {
+  text-align: center;
+}
+.backgrid-filter.form-search .input-prepend, .backgrid-filter.form-search .input-append {
   display: inline-block;
-  float: none;
+}
+.backgrid-filter.form-search .input-prepend input[type=text], .backgrid-filter.form-search .input-append input[type=text] {
+  display: inline-block;
+  width: 240px;
+  height: 30px;
+}
+.backgrid-filter.form-search .input-prepend .add-on, .backgrid-filter.form-search .input-append .add-on {
+  display: inline-block;
+  width: auto;
+  min-width: 20px;
+  height: 20px;
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 4px 5px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+}
+.backgrid-filter.form-search .input-prepend input[type=text] {
+  border-radius: 0 3px 3px 0;
+}
+.backgrid-filter.form-search .input-prepend .add-on:first-child {
+  border-radius: 3px 0 0 3px;
+}
+.backgrid-filter.form-search .input-append input[type=text] {
+  border-radius: 3px 0 0 3px;
+}
+.backgrid-filter.form-search .input-append .add-on:last-child {
+  border-radius: 0 3px 3px 0;
+}
+.backgrid-filter.form-search .input-prepend.input-append input[type=text] {
+  border-radius: 0;
+}
+.backgrid-filter.form-search a.close {
+  display: inline-block;
   width: 20px;
   height: 20px;
-  margin-top: -4px;
   font-size: 20px;
   line-height: 20px;
   text-align: center;
+  text-decoration: none;
   vertical-align: text-top;
+  position: absolute;
+  left: 5px;
+  top: 4px;
 }

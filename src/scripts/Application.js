@@ -1,13 +1,19 @@
 
-// var Gallery = require('./classes/Gallery');
-// var HeroTabs = require('./classes/HeroTabs');
-// var ShowMore = require('./classes/ShowMore');
-
-
-
+var getAjaxContent = require('./utilities/GetAjaxContent');
 
 var Application = {
 	initialize: function() {
+		var self = this;
+
+		$.when(getAjaxContent('/data/territories.json')).done(function(response) {
+			self.buildTable(response);
+		}).fail(function(error) {
+			console.log(error);
+		});
+
+	},
+
+	buildTable: function(data) {
 		//console.log('Application:initialize');
 		var self = this;
 		var $document = $(document);
@@ -27,43 +33,26 @@ var Application = {
 		});
 
 		var territories = new Territories();
+		territories.add(data);
 
 		var columns = [
 			{
-				// name: "id", // The key of the model attribute
-				// label: "ID", // The name to display in the header
-				// editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-				// // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
-				// // cell: Backgrid.IntegerCell.extend({
-				// // 	orderSeparator: ''
-				// // })
-				// cell: "integer" // An integer cell is a number cell that displays humanized integers
+			// 	name: "id", // The key of the model attribute
+			// 	label: "ID", // The name to display in the header
+			// 	editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+			// 	// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+			// 	// cell: Backgrid.IntegerCell.extend({
+			// 	// 	orderSeparator: ''
+			// 	// })
+			// 	cell: "integer" // An integer cell is a number cell that displays humanized integers
+			// }, {
 				name: "name",
 				url: "url",
 				label: "Name",
 				editable: false,
-				cell: Backgrid.UriCell.extend({
-					render: function () {
-						this.$el.empty();
-						var formattedUrl = this.formatter.fromRaw(this.model.get(this.column.get("url")));
-						var formattedName = this.formatter.fromRaw(this.model.get(this.column.get("name")));
-						this.$el.append($("<a>", {
-							href: formattedUrl,
-							title: formattedName,
-							target: "_blank"
-						}).text(formattedName));
-						this.delegateEvents();
-						return this;
-					}
-				})
+				cell: "link"
 			}, {
-			// 	name: "name",
-			// 	label: "Name",
-			// 	editable: false,
-			// 	// The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
-			// 	cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up
-			// }, {
-				name: "pop",
+				name: "population",
 				label: "Population",
 				editable: false,
 				cell: "integer" // An integer cell is a number cell that displays humanized integers
@@ -72,11 +61,11 @@ var Application = {
 				label: "% of World Population",
 				editable: false,
 				cell: "number" // A cell type for floating point value, defaults to have a precision 2 decimal numbers
-			}, {
-				name: "date",
-				label: "Date",
-				editable: false,
-				cell: "date",
+			// }, {
+			// 	name: "date",
+			// 	label: "Date",
+			// 	editable: false,
+			// 	cell: "date",
 			}, {
 				name: "date",
 				label: "Year",
@@ -85,25 +74,6 @@ var Application = {
 					className: "date-cell",
 					displayFormat: "YYYY"
 				})
-			// }, {
-			// 	name: "name",
-			// 	url: "url",
-			// 	label: "URL",
-			// 	editable: false,
-			// 	cell: Backgrid.UriCell.extend({
-			// 		render: function () {
-			// 			this.$el.empty();
-			// 			var formattedUrl = this.formatter.fromRaw(this.model.get(this.column.get("url")));
-			// 			var formattedName = this.formatter.fromRaw(this.model.get(this.column.get("name")));
-			// 			this.$el.append($("<a>", {
-			// 				href: formattedUrl,
-			// 				title: formattedName,
-			// 				target: "_blank"
-			// 			}).text(formattedName));
-			// 			this.delegateEvents();
-			// 			return this;
-			// 		}
-			// 	})
 			}
 		];
 
@@ -124,7 +94,6 @@ var Application = {
 		// Render the paginator
 		$elTarget.append(paginator.render().$el);
 
-
 		// Initialize a client-side filter to filter on the client
 		// mode pageable collection's cache.
 		var filter = new Backgrid.Extension.ClientSideFilter({
@@ -137,8 +106,7 @@ var Application = {
 		$elTarget.prepend(filter.render().$el);
 
 		// Fetch some countries from the url
-		territories.fetch({reset: true});
-
+		//territories.fetch({reset: true});
 
 	}
 
