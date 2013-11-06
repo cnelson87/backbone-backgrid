@@ -865,8 +865,9 @@ html, body {
   height: 100%;
   background: #fff;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
   position: relative;
+  overflow: scroll;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -876,6 +877,13 @@ html, body {
 #main #main-inner #content {
   width: 100%;
   min-height: 400px;
+  padding: 40px 0;
+  position: relative;
+}
+#main #main-inner #subcol {
+  width: 200px;
+  min-height: 400px;
+  padding: 40px 0;
   position: relative;
 }
 #main #main-inner.twocols #content {
@@ -884,7 +892,6 @@ html, body {
 }
 #main #main-inner.twocols #subcol {
   float: right;
-  width: 200px;
 }
 
 /*
