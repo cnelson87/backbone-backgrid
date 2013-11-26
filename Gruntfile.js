@@ -12,7 +12,7 @@
 		pkg: grunt.file.readJSON('package.json'),
 		fileName: '<%= pkg.shortName %>',
 		metaTitle: '<%= pkg.title %>',
-		portNum : 3222,
+		portNum : '<%= pkg.portNumber %>',
 
 		// File Paths
 		basePath : '.',
@@ -22,12 +22,26 @@
 		sourceScripts	: '<%= sourcePath %>/scripts',
 		sourceStyles	: '<%= sourcePath %>/styles',
 		sourceTemplates	: '<%= sourcePath %>/templates',
+		sourceImages	: '<%= sourcePath %>/images',
 		sourceVendor	: '<%= sourceScripts %>/vendor',
 		sitePath		: '<%= basePath %>/public',
-		outputScripts	: '<%= sitePath %>/_ui/js',
-		outputStyles	: '<%= sitePath %>/_ui/css',
+		outputAssets	: '<%= sitePath %>/_ui',
+		outputScripts	: '<%= outputAssets %>/js',
+		outputStyles	: '<%= outputAssets %>/css',
 		outputVendor	: '<%= outputScripts %>/lib',
+		outputImages	: '<%= outputAssets %>/img',
 
+
+		// Run web server
+		'connect': {
+			dev: {
+				options: {
+					hostname: null,
+					port: '<%= portNum %>',
+					base: '<%= sitePath %>/'
+				}
+			}
+		},
 
 		// Compile javascript modules
 		'browserify2': {
@@ -62,18 +76,17 @@
 			}
 		},
 
+		// Concatenates script files into a single file
 		'concat': {
+			options: {
+				//separator: '\n;\n'
+				separator: '\n'
+			},
 			vendor: {
-				options: {
-					//separator: '\n;\n'
-					separator: '\n'
-				},
 				src: [
 					'<%= sourceVendor %>/modernizr.custom.min.js',
 					'<%= sourceVendor %>/json2.js',
 					'<%= sourceVendor %>/jquery-1.10.2.min.js',
-					//'<%= sourceVendor %>/jquery.easing-1.3',
-					//'<%= sourceVendor %>/handlebars.runtime-1.0.js',
 					'<%= sourceVendor %>/moment-2.4.0.min.js',
 					'<%= sourceVendor %>/underscore-1.5.2.min.js',
 					'<%= sourceVendor %>/backbone-1.1.0.min.js',
@@ -83,53 +96,19 @@
 					'<%= sourceVendor %>/backgrid-extensions.js',
 					'<%= sourceVendor %>/backgrid-moment-cell.min.js',
 					'<%= sourceVendor %>/backgrid-paginator.min.js',
-					'<%= sourceVendor %>/backgrid-filter.min.js'
+					'<%= sourceVendor %>/backgrid-filter.min.js',
+					'<%= sourceVendor %>/class.js'
 				],
 				dest: '<%= outputVendor %>/vendor.js'
-			}//,
-			// scripts: {
-			// 	options: {
-			// 		//separator: '\n;\n'
-			// 		separator: '\n'
-			// 	},
-			// 	src: [
-			// 		// '<%= sourceScripts %>/Config.js',
-			// 		// '<%= sourceScripts %>/Utils.js',
-			// 		// '<%= sourceScripts %>/Main.js',
-			// 		// '<%= sourceScripts %>/init.js'
-			// 	],
-			// 	dest: '<%= outputScripts %>/<%= fileName %>.js'
-			// }
-		},
-
-		'connect': {
-			dev: {
-				options: {
-					hostname: null,
-					port: '<%= portNum %>',
-					base: '<%= sitePath %>/'
-				}
 			}
 		},
-
-		// Pre-compile handlebars templates
-		// 'handlebars': {
-		// 	compile: {
-		// 		options: {
-		// 			namespace: 'BBBG.Templates',
-		// 			templateRoot: 'BBBG.'
-		// 		},
-		// 		files: {
-		// 			'<%= sourceScripts %>/Templates.js': '<%= sourceTemplates %>/**/*.hbs'
-		// 		}
-		// 	}
-		// },
 
 		// Compile sass to css
 		'sass': {
 			compile: {
 				options: {
-					style: 'expanded',
+					//style: 'expanded',
+					style: 'compact',
 					debug: false
 				},
 				files: [{
@@ -138,15 +117,6 @@
 				}]
 			}
 		},
-
-		// Compress and minify scripts
-		// 'uglify': {
-		// 	vendor: {
-		// 		files: {
-		// 		  '<%= outputVendor %>/vendor.min.js' : '<%= outputVendor %>/vendor.js'
-		// 		}
-		// 	}
-		// },
 
 		// Watch files for changes
 		'watch': {
@@ -164,11 +134,11 @@
 			styles: {
 				files: '<%= sourceStyles %>/**/*.*',
 				tasks: ['sass']
-			}//,
-			// templates: {
-			// 	files: '<%= sourceTemplates %>/**/*.hbs',
-			// 	tasks: ['browserify2']
-			// }
+			},
+			templates: {
+				files: '<%= sourceTemplates %>/**/*.hbs',
+				tasks: ['browserify2']
+			}
 		}
 
 	});

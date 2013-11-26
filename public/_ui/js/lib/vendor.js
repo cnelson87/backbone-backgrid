@@ -587,3 +587,67 @@ var LinkCell = Backgrid.Extension.LinkCell = Backgrid.Cell.extend({
   Licensed under the MIT @license.
 */
 (function(e,t,i,n,s){"use strict";var a=n.Extension.ServerSideFilter=i.View.extend({tagName:"form",className:"backgrid-filter form-search",template:t.template('<div class="input-prepend input-append"><span class="add-on"><i class="icon-search"></i></span><input type="text" <% if (placeholder) { %> placeholder="<%- placeholder %>" <% } %> name="<%- name %>" /><span class="add-on"><a class="close" href="#">&times;</a></span></div>'),events:{"click .close":"clear",submit:"search"},name:"q",placeholder:null,initialize:function(e){n.requireOptions(e,["collection"]),i.View.prototype.initialize.apply(this,arguments),this.name=e.name||this.name,this.placeholder=e.placeholder||this.placeholder;var t=this.collection,s=this;i.PageableCollection&&t instanceof i.PageableCollection&&t.mode=="server"&&(t.queryParams[this.name]=function(){return s.$el.find("input[type=text]").val()})},search:function(e){e&&e.preventDefault();var t={};t[this.name]=this.$el.find("input[type=text]").val(),this.collection.fetch({data:t})},clear:function(e){e&&e.preventDefault(),this.$("input[type=text]").val(null),this.collection.fetch()},render:function(){return this.$el.empty().append(this.template({name:this.name,placeholder:this.placeholder,value:this.value})),this.delegateEvents(),this}}),l=n.Extension.ClientSideFilter=a.extend({events:{"click .close":function(e){e.preventDefault(),this.clear()},"change input[type=text]":"search","keyup input[type=text]":"search",submit:function(e){e.preventDefault(),this.search()}},fields:null,wait:149,initialize:function(e){a.prototype.initialize.apply(this,arguments),this.fields=e.fields||this.fields,this.wait=e.wait||this.wait,this._debounceMethods(["search","clear"]);var i=this.collection,n=this.shadowCollection=i.clone();n.url=i.url,n.sync=i.sync,n.parse=i.parse,this.listenTo(i,"add",function(e,t,i){n.add(e,i)}),this.listenTo(i,"remove",function(e,t,i){n.remove(e,i)}),this.listenTo(i,"sort reset",function(e,i){i=t.extend({reindex:!0},i||{}),i.reindex&&n.reset(e.models)})},_debounceMethods:function(e){t.isString(e)&&(e=[e]),this.undelegateEvents();for(var i=0,n=e.length;n>i;i++){var s=e[i],a=this[s];this[s]=t.debounce(a,this.wait)}this.delegateEvents()},makeMatcher:function(e){var t=new RegExp(e.trim().split(/\W/).join("|"),"i");return function(e){for(var i=this.fields||e.keys(),n=0,s=i.length;s>n;n++)if(t.test(e.get(i[n])+""))return!0;return!1}},search:function(){var e=t.bind(this.makeMatcher(this.$("input[type=text]").val()),this);this.collection.reset(this.shadowCollection.filter(e),{reindex:!1})},clear:function(){this.$("input[type=text]").val(null),this.collection.reset(this.shadowCollection.models,{reindex:!1})}});n.Extension.LunrFilter=l.extend({ref:"id",fields:null,initialize:function(e){l.prototype.initialize.apply(this,arguments),this.ref=e.ref||this.ref;var t=this.collection;this.listenTo(t,"add",this.addToIndex),this.listenTo(t,"remove",this.removeFromIndex),this.listenTo(t,"reset",this.resetIndex),this.listenTo(t,"change",this.updateIndex),this.resetIndex(t)},resetIndex:function(e,i){if(i=t.extend({reindex:!0},i||{}),i.reindex){var n=this;this.index=s(function(){t.each(n.fields,function(e,t){this.field(t,e),this.ref(n.ref)},this)}),e.each(function(e){this.addToIndex(e)},this)}},addToIndex:function(e){var t=this.index,i=e.toJSON();t.documentStore.has(i[this.ref])?t.update(i):t.add(i)},removeFromIndex:function(e){var t=this.index,i=e.toJSON();t.documentStore.has(i[this.ref])&&t.remove(i)},updateIndex:function(e){var i=e.changedAttributes();i&&!t.isEmpty(t.intersection(t.keys(this.fields),t.keys(i)))&&this.index.update(e.toJSON())},search:function(){for(var e=this.index.search(this.$("input[type=text]").val()),t=[],i=0;i<e.length;i++){var n=e[i];t.push(this.shadowCollection.get(n.ref))}this.collection.reset(t,{reindex:!1})}})})(jQuery,_,Backbone,Backgrid,lunr);
+/* Simple JavaScript Inheritance
+ * By John Resig http://ejohn.org/
+ * MIT Licensed.
+ */
+// Inspired by base2 and Prototype
+(function(){
+  var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
+ 
+  // The base Class implementation (does nothing)
+  this.Class = function(){};
+ 
+  // Create a new Class that inherits from this class
+  Class.extend = function(prop) {
+    var _super = this.prototype;
+   
+    // Instantiate a base class (but only create the instance,
+    // don't run the init constructor)
+    initializing = true;
+    var prototype = new this();
+    initializing = false;
+   
+    // Copy the properties over onto the new prototype
+    for (var name in prop) {
+      // Check if we're overwriting an existing function
+      prototype[name] = typeof prop[name] == "function" &&
+        typeof _super[name] == "function" && fnTest.test(prop[name]) ?
+        (function(name, fn){
+          return function() {
+            var tmp = this._super;
+           
+            // Add a new ._super() method that is the same method
+            // but on the super-class
+            this._super = _super[name];
+           
+            // The method only need to be bound temporarily, so we
+            // remove it when we're done executing
+            var ret = fn.apply(this, arguments);        
+            this._super = tmp;
+           
+            return ret;
+          };
+        })(name, prop[name]) :
+        prop[name];
+    }
+   
+    // The dummy class constructor
+    function Class() {
+      // All construction is actually done in the init method
+      if ( !initializing && this.init )
+        this.init.apply(this, arguments);
+    }
+   
+    // Populate our constructed prototype object
+    Class.prototype = prototype;
+   
+    // Enforce the constructor to be what we expect
+    Class.prototype.constructor = Class;
+ 
+    // And make this class extendable
+    Class.extend = arguments.callee;
+   
+    return Class;
+  };
+})();
