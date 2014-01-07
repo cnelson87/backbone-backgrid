@@ -36,16 +36,20 @@ var Application = {
 		territories.add(data);
 
 		var columns = [
+/*
 			{
-			// 	name: "id", // The key of the model attribute
-			// 	label: "ID", // The name to display in the header
-			// 	editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-			// 	// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
-			// 	// cell: Backgrid.IntegerCell.extend({
-			// 	// 	orderSeparator: ''
-			// 	// })
-			// 	cell: "integer" // An integer cell is a number cell that displays humanized integers
-			// }, {
+				name: "id", // The key of the model attribute
+				label: "ID", // The name to display in the header
+				editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+				// Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+				// cell: Backgrid.IntegerCell.extend({
+				// orderSeparator: ''
+				// })
+				cell: "integer" // An integer cell is a number cell that displays humanized integers
+			},
+*/
+			{
+
 				name: "name",
 				url: "url",
 				label: "Name",
@@ -61,12 +65,16 @@ var Application = {
 				label: "% of World Population",
 				editable: false,
 				cell: "number" // A cell type for floating point value, defaults to have a precision 2 decimal numbers
-			// }, {
-			// 	name: "date",
-			// 	label: "Date",
-			// 	editable: false,
-			// 	cell: "date",
-			}, {
+			},
+/*
+			{
+				name: "date",
+				label: "Date",
+				editable: false,
+				cell: "date",
+			},
+*/
+			{
 				name: "date",
 				label: "Year",
 				editable: false,
@@ -110,6 +118,6 @@ var Application = {
 
 	}
 
-}
+};
 
 module.exports = Application;
