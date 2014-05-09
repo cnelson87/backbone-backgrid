@@ -48,15 +48,14 @@
 		},
 
 		// Compile javascript modules
-		'browserify2': {
+		'browserify': {
 			compile: {
-				entry: '<%= sourceScripts %>/initialize.js',
-				compile: '<%= outputScripts %>/<%= fileName %>.js',
-				// Precompile Handlebars templates
-				beforeHook: function(bundle) {
-					bundle.transform(handleify);
-				},
-				debug: true
+				src: '<%= sourceScripts %>/initialize.js',
+				dest: '<%= outputScripts %>/<%= fileName %>.js',
+				options: {
+					transform: ['handleify'],
+					debug: true
+				}
 			}
 		},
 
@@ -87,8 +86,8 @@
 			},
 			vendor: {
 				src: [
-					'<%= sourceVendor %>/modernizr.custom.js',
-					'<%= sourceVendor %>/jquery.js',
+					'<%= sourceVendor %>/modernizr.custom.min.js',
+					'<%= sourceVendor %>/jquery.min.js',
 					'<%= sourceVendor %>/lunr.min.js',
 					'<%= sourceVendor %>/moment.min.js',
 					'<%= sourceVendor %>/underscore.min.js',
@@ -103,7 +102,7 @@
 					'<%= sourceVendor %>/class.js',
 					'<%= sourceScripts %>/shims/classList.js'
 				],
-				dest: '<%= outputVendor %>/vendor.dist.js'
+				dest: '<%= outputVendor %>/vendor.js'
 			}
 		},
 
@@ -116,6 +115,7 @@
 					jQuery: true,
 					Backbone: true,
 					Modernizr: true,
+					TweenMax: true,
 					alert: true,
 					console: true,
 					module: true,
@@ -157,7 +157,7 @@
 			},
 			scripts: {
 				files: '<%= sourceScripts %>/**/*.js',
-				tasks: ['jshint', 'browserify2']
+				tasks: ['jshint', 'browserify']
 			},
 			styles: {
 				files: '<%= sourceStyles %>/**/*.*',
@@ -165,7 +165,7 @@
 			},
 			templates: {
 				files: '<%= sourceTemplates %>/**/*.hbs',
-				tasks: ['browserify2']
+				tasks: ['browserify']
 			}
 		}
 
@@ -176,7 +176,7 @@
 	require('load-grunt-tasks')(grunt);
 
 	// Register custom tasks
-	grunt.registerTask('build', ['includereplace', 'jshint', 'browserify2', 'concat', 'sass']);
+	grunt.registerTask('build', ['includereplace', 'jshint', 'browserify', 'concat', 'sass']);
 	grunt.registerTask('run', ['build', 'connect', 'watch']);
 
 };

@@ -1,5 +1,5 @@
 
-var getAjaxContent = require('./utilities/GetAjaxContent');
+var getAjaxContent = require('./utils/GetAjaxContent');
 
 var Application = {
 	initialize: function() {
