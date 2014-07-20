@@ -7,12 +7,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 audio, canvas, video { display: inline-block; }
 
-body { color: #010101; font-family: Arial, Verdana, sans-serif; /* uncomment appropriate line to set default type size */ /* font-size: 100%; /* 16px */ /* font-size: 87.5%; /* 14px */ font-size: 75.0%; /* 12px */ /* font-size: 62.5%; /* 10px */ line-height: 1.0; background: #fff; }
+body { color: #010101; font-family: Arial, Verdana, sans-serif; font-size: 75.0%; line-height: 1.0; background: #fff; }
 
-/* a, a:link, a:visited */
 a { color: #990000; text-decoration: none; -webkit-transition: color .2s, background-color .2s; -moz-transition: color .2s, background-color .2s; -ms-transition: color .2s, background-color .2s; -o-transition: color .2s, background-color .2s; transition: color .2s, background-color .2s; }
 
-/* a:focus, a:hover, a:visited:hover, a:active */
 a:focus, a:hover { color: #cc0000; text-decoration: underline; }
 
 p, ul, ol, dl, table, address { font-size: 1.0em; line-height: 1.5em; margin-bottom: 1.5em; }
@@ -55,7 +53,7 @@ blockquote, q { quotes: none; }
 
 blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 
-blockquote { /* note: must not leave any whitespace at the beginning of a blockquote in markup - Safari will render it  */ color: #333333; font-size: 20px; font-family: Georgia, Times, serif; font-weight: normal; line-height: 1.2em; margin: 0 0 1.2em 0; padding: 0 20px; }
+blockquote { /* note: must not leave any whitespace at the beginning of a blockquote in markup - Safari will render it */ color: #333333; font-size: 20px; font-family: Georgia, Times, serif; font-weight: normal; line-height: 1.2em; margin: 0 0 1.2em 0; padding: 0 20px; }
 
 /*
 /* UTILITIES
@@ -172,14 +170,14 @@ fieldset { display: block; width: auto; margin-bottom: 1.5em; }
 
 legend { display: none; }
 
-label, span.label { display: inline-block; color: #333333; font-size: 13px; font-weight: bold; line-height: 18px; padding-top: 2px; /* matches input padding-top for vertical alignment */ }
+label, span.label { display: inline-block; color: #333333; font-size: 13px; font-weight: bold; line-height: 16px; padding-top: 2px; /* matches input padding-top for vertical alignment */ }
 label span.sm, span.label span.sm { font-size: 12px; font-weight: normal; }
 
 label.disabled { color: #cccccc; }
 
-output { display: inline-block; color: #333333; font-size: 13px; font-weight: bold; line-height: 18px; padding-top: 2px; /* matches input padding-top for vertical alignment */ }
+output { display: inline-block; color: #333333; font-size: 13px; font-weight: bold; line-height: 16px; padding-top: 2px; /* matches input padding-top for vertical alignment */ }
 
-input, select, textarea, button { color: #333333; font-family: Arial, sans-serif; font-size: 13px; vertical-align: top; margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+input, select, textarea, button { color: #333333; font-family: Arial, sans-serif; font-size: 13px; line-height: 16px; vertical-align: top; background: none; border: 0; margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
 
 input:invalid, select:invalid, textarea:invalid { box-shadow: none; outline: 0; }
 
@@ -192,29 +190,29 @@ input:invalid, select:invalid, textarea:invalid { box-shadow: none; outline: 0; 
 ::input-placeholder { color: #999999; opacity: 1; }
 
 /* start text inputs, selects, textareas */
-input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]), select, textarea { width: 140px; height: 24px; border: 1px solid #ccc; border-radius: 3px; padding: 2px; }
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=tel], input[type=url], textarea { width: 140px; height: 24px; border: 1px solid #cccccc; border-radius: 3px; padding: 2px; }
 
-select { width: auto; min-width: 80px; max-width: 100%; }
+select { width: auto; min-width: 80px; max-width: 100%; height: 24px; border: 1px solid #cccccc; border-radius: 3px; padding: 2px; }
 
-textarea { height: 38px; line-height: 16px; }
+textarea { width: 240px; max-width: 100%; height: 54px; border: 1px solid #cccccc; border-radius: 3px; padding: 2px; }
 
-input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]):focus, select:focus, textarea:focus { border-color: #333; outline: none; }
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, input[type=tel]:focus, input[type=url]:focus, select:focus, textarea:focus { border-color: #333333; outline: none; }
 
-input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit])[disabled], input:not([type=range]):not([type=checkbox]):not([type=radio]):not([type=submit]).disabled, select[disabled], select.disabled, textarea[disabled], textarea.disabled { color: #ccc; border-color: #dedede; }
+input[type=text][disabled], input[type=password][disabled], input[type=email][disabled], input[type=number][disabled], input[type=tel][disabled], input[type=url][disabled], input[type=text].disabled, input[type=password].disabled, input[type=email].disabled, input[type=number].disabled, input[type=tel].disabled, input[type=url].disabled, select[disabled], select.disabled, textarea[disabled], textarea.disabled { color: #ccc; border-color: #dedede; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=submit]).invalid, select.invalid, textarea.invalid { border-color: #c00; }
+input[type=text].invalid, input[type=password].invalid, input[type=email].invalid, input[type=number].invalid, input[type=tel].invalid, input[type=url].invalid, select.invalid, textarea.invalid { border-color: #990000; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-med, select.input-med { /* default */ width: 140px; }
+input.input-med, select.input-med { /* default */ width: 140px; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-xshort, select.input-xshort { width: 40px; min-width: 40px; }
+input.input-xshort, select.input-xshort { width: 40px; min-width: 40px; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-short, select.input-short { width: 80px; }
+input.input-short, select.input-short { width: 80px; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-long, select.input-long { width: 240px; }
+input.input-long, select.input-long { width: 240px; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-xlong, select.input-xlong { width: 360px; }
+input.input-xlong, select.input-xlong { width: 360px; }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]).input-auto, select.input-auto { width: auto; min-width: auto; }
+input.input-auto, select.input-auto { width: auto; min-width: auto; }
 
 textarea.textarea-med { width: 280px; height: 70px; /* 16px * 4 line-height + 6px padding & border */ }
 
@@ -234,7 +232,7 @@ input[type=range][disabled], input[type=range].disabled { cursor: default; }
 
 /* end range input */
 /* start buttons */
-input[type=submit], input[type=reset], input[type=button], button { cursor: pointer; min-width: 88px; font-size: 12px; font-weight: bold; text-align: center; text-decoration: none; text-transform: uppercase; vertical-align: middle; background: #ccc; border: 1px solid #333; border-radius: 3px; padding: 4px 12px; /* old IE width fix, no affect on other browsers */ overflow: visible; -webkit-transition: color .2s, background-color .2s; -moz-transition: color .2s, background-color .2s; -ms-transition: color .2s, background-color .2s; -o-transition: color .2s, background-color .2s; transition: color .2s, background-color .2s; }
+input[type=submit], input[type=reset], input[type=button], button { cursor: pointer; min-width: 88px; font-size: 12px; font-weight: bold; text-align: center; text-decoration: none; text-transform: uppercase; vertical-align: middle; background: #ccc; border: 1px solid #333333; border-radius: 3px; padding: 4px 12px; overflow: visible; -webkit-transition: color .2s, background-color .2s; -moz-transition: color .2s, background-color .2s; -ms-transition: color .2s, background-color .2s; -o-transition: color .2s, background-color .2s; transition: color .2s, background-color .2s; }
 input[type=submit]:focus, input[type=submit]:hover, input[type=reset]:focus, input[type=reset]:hover, input[type=button]:focus, input[type=button]:hover, button:focus, button:hover { background: #dedede; outline: none; }
 
 input.btn, input.sm-btn, button.btn, button.sm-btn { color: #fff; background: #900; }
@@ -331,53 +329,168 @@ ol.cb-rb-fields, ul.cb-rb-fields { list-style: none; margin: 0; }
 /*-----------------------------------------------------*/
 html, body { height: 100%; min-height: 100%; }
 
-#wrapper { width: 100%; min-width: 1000px; height: 100%; min-height: 100%; margin: 0 auto; padding: 80px 0; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+#wrapper { width: 100%; min-width: 320px; height: 100%; min-height: 100%; margin: 0 auto; padding: 80px 0; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
 
 #header { width: 100%; background: #dedede; position: fixed; left: 0; top: 0; z-index: 3; }
-#header #header-inner { width: 1000px; height: 80px; background: #cdcdcd; margin: 0 auto; padding: 20px; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+#header #header-inner { width: 320px; height: 80px; background: #cdcdcd; margin: 0 auto; padding: 20px; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
 
 #footer { width: 100%; background: #dedede; position: fixed; left: 0; bottom: 0; z-index: 2; }
-#footer #footer-inner { width: 1000px; height: 80px; background: #cdcdcd; margin: 0 auto; padding: 20px; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+#footer #footer-inner { width: 320px; height: 80px; background: #cdcdcd; margin: 0 auto; padding: 20px; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
 
 #main { width: 100%; height: 100%; background: #cdcdcd; position: relative; z-index: 1; }
-#main #main-inner { width: 1000px; height: 100%; background: #fff; margin: 0 auto; padding: 0 20px; position: relative; overflow: scroll; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
-#main #main-inner #content { width: 100%; min-height: 400px; padding: 40px 0; position: relative; }
-#main #main-inner #subcol { width: 200px; min-height: 400px; padding: 94px 0 40px 0; position: relative; }
-#main #main-inner.twocols #content { float: left; width: 720px; }
-#main #main-inner.twocols #subcol { float: right; }
+#main #main-inner { width: 320px; height: 100%; background: #fff; margin: 0 auto; padding: 0 20px; position: relative; overflow: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+#main #main-inner #content { width: 280px; padding: 40px 0; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
+#main #main-inner #subcol { width: 280px; padding: 40px 0; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; }
 
 /*
-	backgrid
-	http://github.com/wyuenho/backgrid
+/* BREAKPOINTS
+/*-----------------------------------------------------*/
+#breakpoint-indicator { width: 1px; height: 1px; position: absolute; left: -1px; top: -1px; z-index: 1; }
 
-	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
-	Licensed under the MIT @license.
+@media only screen and (min-width: 480px) { #breakpoint-indicator { z-index: 2; }
+  #wrapper { min-width: 480px; }
+  #header #header-inner { width: 480px; }
+  #footer #footer-inner { width: 480px; }
+  #main #main-inner { width: 480px; }
+  #main #main-inner #content { width: 440px; }
+  #main #main-inner #subcol { width: 440px; } }
+@media only screen and (min-width: 640px) { #breakpoint-indicator { z-index: 3; }
+  #wrapper { min-width: 640px; }
+  #header #header-inner { width: 640px; }
+  #footer #footer-inner { width: 640px; }
+  #main #main-inner { width: 640px; }
+  #main #main-inner #content { width: 600px; }
+  #main #main-inner #subcol { width: 600px; } }
+@media only screen and (min-width: 760px) { #breakpoint-indicator { z-index: 4; }
+  #wrapper { min-width: 760px; }
+  #header #header-inner { width: 760px; }
+  #footer #footer-inner { width: 760px; }
+  #main #main-inner { width: 760px; }
+  #main #main-inner #content { width: 720px; }
+  #main #main-inner #subcol { width: 720px; } }
+@media only screen and (min-width: 960px) { #breakpoint-indicator { z-index: 5; }
+  #wrapper { min-width: 960px; }
+  #header #header-inner { width: 960px; }
+  #footer #footer-inner { width: 960px; }
+  #main #main-inner { width: 960px; }
+  #main #main-inner #content { width: 920px; }
+  #main #main-inner.twocols #content { float: left; width: 700px; min-height: 400px; }
+  #main #main-inner.twocols #subcol { float: right; width: 200px; min-height: 400px; } }
+@media only screen and (min-width: 1024px) { #breakpoint-indicator { z-index: 6; }
+  #wrapper { min-width: 1000px; }
+  #header #header-inner { width: 1000px; }
+  #footer #footer-inner { width: 1000px; }
+  #main #main-inner { width: 1000px; }
+  #main #main-inner #content { width: 960px; }
+  #main #main-inner.twocols #content { width: 740px; }
+  #main #main-inner.twocols #subcol { width: 200px; } }
+@media only screen and (min-width: 1280px) { #breakpoint-indicator { z-index: 7; } }
+@media only screen and (min-width: 1600px) { #breakpoint-indicator { z-index: 8; } }
+@media only screen and (min-width: 1920px) { #breakpoint-indicator { z-index: 9; } }
+/* backgrid http://github.com/wyuenho/backgrid
+ Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors Licensed under the MIT license.
 */
-.backgrid-container { position: relative; display: block; width: 100%; height: auto; padding: 0; overflow: auto; border: 0; }
+.backgrid-container { position: relative; display: block; width: 100%; height: 465px; padding: 0; overflow: auto; border: 0; }
 
-.backgrid { width: 100%; max-width: 100%; background-color: transparent; border: 1px solid #DDD; border-collapse: collapse; margin: 0; }
-.backgrid th, .backgrid td { height: 20px; max-width: 250px; padding: 4px 5px; overflow: hidden; line-height: 20px; text-align: left; text-overflow: ellipsis; vertical-align: top; border: 1px solid #DDD; }
-.backgrid th { font-weight: bold; cursor: pointer; }
-.backgrid th a { white-space: nowrap; }
+.backgrid { width: 100%; max-width: 100%; background-color: transparent; border-collapse: collapse; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; }
+
+.backgrid th, .backgrid td { display: none; height: 20px; max-width: 250px; padding: 4px 5px; overflow: hidden; line-height: 20px; text-align: left; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; border-bottom: 1px solid #DDD; }
+
+.backgrid th.renderable, .backgrid td.renderable { display: table-cell; }
+
+.backgrid th { font-weight: bold; text-align: center; }
+
+.backgrid th.sortable a { text-decoration: none; white-space: nowrap; cursor: pointer; }
+
 .backgrid thead th { vertical-align: bottom; background-color: #f9f9f9; }
-.backgrid tbody tr:nth-child(even) td, .backgrid tbody tr:nth-child(even) th { background-color: #f9f9f9; }
+
+.backgrid thead th a { display: block; }
+
+.backgrid.backgrid-striped tbody tr:nth-child(even) { background-color: #f9f9f9; }
+
 .backgrid tbody tr.empty { font-style: italic; color: gray; }
-.backgrid tbody tr.empty td { text-align: center; }
-.backgrid td.editor, .backgrid tbody tr:nth-child(even) td.editor { background-color: rgba(82, 168, 236, 0.1); outline: 1px solid rgba(82, 168, 236, 0.8); outline-offset: -1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition-duration: 200ms; -moz-transition-duration: 200ms; -o-transition-duration: 200ms; transition-duration: 200ms; -webkit-transition-property: width, outline, background-color; -moz-transition-property: width, outline, background-color; -o-transition-property: width, outline, background-color; transition-property: width, outline, background-color; -webkit-transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-timing-function: ease-in-out; }
-.backgrid td.editor input[type=text] { display: block; width: 100%; height: 100%; padding: 0; margin: 0; background-color: transparent; border: 0; outline: 0; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none; }
+
+.backgrid tbody tr.empty td { display: inherit; text-align: center; }
+
+.backgrid td.editor { padding: 0; }
+
+.backgrid td.editor, .backgrid tbody tr:nth-child(odd) td.editor { background-color: rgba(82, 168, 236, 0.1); outline: 1px solid rgba(82, 168, 236, 0.8); outline-offset: -1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition-duration: 200ms; -moz-transition-duration: 200ms; -o-transition-duration: 200ms; transition-duration: 200ms; -webkit-transition-property: width, outline, background-color; -moz-transition-property: width, outline, background-color; -o-transition-property: width, outline, background-color; transition-property: width, outline, background-color; -webkit-transition-timing-function: ease-in-out; -moz-transition-timing-function: ease-in-out; -o-transition-timing-function: ease-in-out; transition-timing-function: ease-in-out; }
+
+.backgrid td.editor input[type=text] { display: block; width: 100%; height: 100%; padding: 0 5px; margin: 0; background-color: transparent; border: 0; outline: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none; }
+
+.backgrid td.editor input[type=text]::-ms-clear { display: none; }
+
 .backgrid td.error, .backgrid tbody tr:nth-child(odd) td.error { background-color: rgba(255, 210, 77, 0.1); outline: 1px solid #ffd24d; }
+
 .backgrid td.editor :focus, .backgrid th.editor :focus { outline: 0; }
+
 .backgrid .sort-caret { display: inline-block; width: 0; height: 0; margin-left: 0.3em; border: 0; content: ""; }
+
 .backgrid .ascending .sort-caret { vertical-align: baseline; border-top: none; border-right: 4px solid transparent; border-bottom: 4px solid #000000; border-left: 4px solid transparent; }
+
 .backgrid .descending .sort-caret { vertical-align: super; border-top: 4px solid #000000; border-right: 4px solid transparent; border-bottom: none; border-left: 4px solid transparent; }
+
 .backgrid .string-cell, .backgrid .uri-cell, .backgrid .email-cell, .backgrid .string-cell.editor input[type=text], .backgrid .uri-cell.editor input[type=text], .backgrid .email-cell.editor input[type=text] { text-align: left; }
-.backgrid .date-cell, .backgrid .time-cell, .backgrid .datetime-cell, .backgrid .number-cell, .backgrid .integer-cell, .backgrid .date-cell.editor input[type=text], .backgrid .time-cell.editor input[type=text], .backgrid .datetime-cell.editor input[type=text], .backgrid .number-cell.editor input[type=text], .backgrid .integer-cell.editor input[type=text] { text-align: right; }
+
+.backgrid .date-cell, .backgrid .time-cell, .backgrid .datetime-cell, .backgrid .number-cell, .backgrid .integer-cell, .backgrid .percent-cell, .backgrid .date-cell.editor input[type=text], .backgrid .time-cell.editor input[type=text], .backgrid .datetime-cell.editor input[type=text], .backgrid .number-cell.editor input[type=text], .backgrid .integer-cell.editor input[type=text], .backgrid .percent-cell.editor input[type=text] { text-align: right; }
+
 .backgrid .boolean-cell, .backgrid .boolean-cell.editor input[type=checkbox] { text-align: center; }
+
 .backgrid .select-cell { text-align: center; }
+
 .backgrid .select-cell.editor { padding: 0; }
-.backgrid .select-cell.editor select { display: block; width: 100%; height: 28px; padding: 4px 5px; margin: 0; line-height: 28px; vertical-align: middle; background-color: white; border: 0; outline: 0; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.backgrid .select-cell.editor select { display: block; width: 100%; height: 28px; padding: 4px 5px; margin: 0; line-height: 28px; vertical-align: middle; background-color: white; border: 0; outline: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.backgrid .select-cell.editor select[multiple] { height: auto; }
+
 .backgrid .select-cell.editor :focus { border: 0; outline: 0; }
+
 .backgrid .select-cell.editor select::-moz-focus-inner, .backgrid .select-cell.editor optgroup::-moz-focus-inner, .backgrid .select-cell.editor option::-moz-focus-inner, .backgrid .select-cell.editor select::-o-focus-inner, .backgrid .select-cell.editor optgroup::-o-focus-inner, .backgrid .select-cell.editor option::-o-focus-inner { border: 0; }
+
+/* backgrid-filter http://github.com/wyuenho/backgrid
+ Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors Licensed under the MIT @license.
+*/
+/* Search Icon CSS derived from:
+ PURE CSS GUI ICONS by Nicolas Gallagher - http://nicolasgallagher.com/pure-css-gui-icons/
+ http://nicolasgallagher.com http://twitter.com/necolas
+ Created: 29 July 2010 Version: 1.0.1
+ Dual licensed under MIT and GNU GPLv2 (c) Nicolas Gallagher
+*/
+.backgrid-filter.form-search { position: relative; width: 248px; height: 30px; margin: 20px; }
+
+/* Search Icon
+*/
+.backgrid-filter .search { position: absolute; top: 50%; left: 6px; z-index: 1000; width: 10px; height: 20px; margin-top: -10px; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+.backgrid-filter .search:before { position: absolute; top: 50%; left: 0; width: 6px; height: 6px; margin-top: -6px; background: transparent; border: 3px solid gray; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px; content: ""; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+.backgrid-filter .search:after { position: absolute; top: 50%; left: 10px; width: 3px; height: 7px; margin-top: 2px; background-color: gray; content: ""; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* Clear button */
+.backgrid-filter .clear { position: absolute; top: 50%; right: 8px; z-index: 1000; width: 10px; height: 20px; margin-top: -10px; font-family: sans-serif; font-size: 20px; font-weight: bold; line-height: 20px; color: gray; text-decoration: none; }
+
+.backgrid-filter input[type="search"] { position: absolute; display: inline-block; width: 206px; height: 20px; padding: 4px 6px; font-weight: normal; color: #555; vertical-align: middle; background-color: #fff; border: 1px solid #ccc; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -webkit-transition: border linear 0.2s, box-shadow linear 0.2s; -moz-transition: border linear 0.2s, box-shadow linear 0.2s; -o-transition: border linear 0.2s, box-shadow linear 0.2s; transition: border linear 0.2s, box-shadow linear 0.2s; }
+
+/* Normalize the search input box, with code borrowed from normalize.css.
+ https://github.com/necolas/normalize.css/
+ Copyright (c) Nicolas Gallagher and Jonathan Neal, MIT @license. */
+/* 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. 4. Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+.backgrid-filter input { margin: 0; font-family: inherit; font-size: 100%; line-height: normal; }
+
+/* Re-set default cursor for disabled elements. */
+.backgrid-filter input[disabled] { cursor: default; }
+
+/* 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome. 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome (include `-moz` to future-proof). */
+.backgrid-filter input[type="search"] { outline: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; -webkit-appearance: none; }
+
+/* Remove the default clear button on IE */
+.backgrid-filter input[type="search"]::-ms-clear { display: none; }
+
+/* Remove inner padding and border in Firefox 4+. */
+.backgrid-filter input::-moz-focus-inner { padding: 0; border: 0; }
+
+.backgrid-filter input[type="search"] { padding-right: 18px; padding-left: 22px; }
 
 /* backgrid-moment-cell http://github.com/wyuenho/backgrid
  Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors Licensed under the MIT @license.
@@ -386,35 +499,24 @@ html, body { height: 100%; min-height: 100%; }
 
 .backgrid .moment-cell.editor input[type=text] { text-align: right; }
 
-/*
-	backgrid-paginator
-	http://github.com/wyuenho/backgrid
-
-	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
-	Licensed under the MIT @license.
+/* backgrid-select-all http://github.com/wyuenho/backgrid
+ Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors Licensed under the MIT @license.
 */
-.backgrid-paginator { text-align: center; border-top: none; border-radius: 0 0 4px 4px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-.backgrid-paginator ul { display: inline-block; margin: 5px 0; }
+.backgrid .select-row-cell, .backgrid .select-all-header-cell { text-align: center; }
+
+/* backgrid-paginator http://github.com/wyuenho/backgrid
+ Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors Licensed under the MIT license.
+*/
+.backgrid-paginator { text-align: center; border-top: none; -webkit-border-radius: 0 0 4px 4px; -moz-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.backgrid-paginator ul { display: inline-block; *display: inline; margin: 5px 0; *zoom: 1; }
+
 .backgrid-paginator ul > li { display: inline; }
+
 .backgrid-paginator ul > li > a, .backgrid-paginator ul > li > span { float: left; width: 30px; height: 30px; padding: 0; line-height: 30px; text-decoration: none; }
-.backgrid-paginator ul > li > a:hover, .backgrid-paginator ul > li.active > a, .backgrid-paginator ul > li.active > span { background-color: #f5f5f5; }
-.backgrid-paginator ul > li.active > a, .backgrid-paginator ul > li.active > span { color: #999999; cursor: default; }
-.backgrid-paginator ul > li.disabled > span, .backgrid-paginator ul > li.disabled > a, .backgrid-paginator ul > li.disabled > a:hover { color: #999999; cursor: default; }
 
-/*
-	backgrid-filter
-	http://github.com/wyuenho/backgrid
+.backgrid-paginator ul > li > a:hover, .backgrid-paginator ul > .active > a, .backgrid-paginator ul > .active > span { background-color: #f5f5f5; }
 
-	Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
-	Licensed under the MIT @license.
-*/
-.backgrid-filter.form-search { text-align: center; }
-.backgrid-filter.form-search .input-prepend, .backgrid-filter.form-search .input-append { display: inline-block; }
-.backgrid-filter.form-search .input-prepend input[type=text], .backgrid-filter.form-search .input-append input[type=text] { display: inline-block; width: 240px; height: 30px; }
-.backgrid-filter.form-search .input-prepend .add-on, .backgrid-filter.form-search .input-append .add-on { display: inline-block; width: auto; min-width: 20px; height: 20px; background: #eee; border: 1px solid #ccc; padding: 4px 5px; font-size: 14px; font-weight: normal; line-height: 20px; text-align: center; position: relative; }
-.backgrid-filter.form-search .input-prepend input[type=text] { border-radius: 0 3px 3px 0; }
-.backgrid-filter.form-search .input-prepend .add-on:first-child { border-radius: 3px 0 0 3px; }
-.backgrid-filter.form-search .input-append input[type=text] { border-radius: 3px 0 0 3px; }
-.backgrid-filter.form-search .input-append .add-on:last-child { border-radius: 0 3px 3px 0; }
-.backgrid-filter.form-search .input-prepend.input-append input[type=text] { border-radius: 0; }
-.backgrid-filter.form-search a.close { display: inline-block; width: 20px; height: 20px; font-size: 20px; line-height: 20px; text-align: center; text-decoration: none; vertical-align: text-top; position: absolute; left: 5px; top: 4px; }
+.backgrid-paginator ul > .active > a, .backgrid-paginator ul > .active > span { color: #999999; cursor: default; }
+
+.backgrid-paginator ul > .disabled > span, .backgrid-paginator ul > .disabled > a, .backgrid-paginator ul > .disabled > a:hover { color: #999999; cursor: default; }

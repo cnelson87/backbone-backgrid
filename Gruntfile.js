@@ -93,7 +93,7 @@
 					'<%= sourceVendor %>/underscore.min.js',
 					'<%= sourceVendor %>/backbone.min.js',
 					'<%= sourceVendor %>/backbone-super.min.js',
-					'<%= sourceVendor %>/backbone-pageable.min.js',
+					'<%= sourceVendor %>/backbone-paginator.min.js',
 					'<%= sourceVendor %>/backgrid.min.js',
 					'<%= sourceVendor %>/backgrid-moment-cell.min.js',
 					'<%= sourceVendor %>/backgrid-filter.min.js',
