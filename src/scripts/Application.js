@@ -1,11 +1,11 @@
 
-var getAjaxContent = require('./utils/GetAjaxContent');
+var ajaxGet = require('utilities/AjaxGet');
 
 var Application = {
 	initialize: function() {
 		var self = this;
 
-		$.when(getAjaxContent('/data/territories.json')).done(function(response) {
+		$.when(ajaxGet('/_api/territories.json')).done(function(response) {
 			self.buildTable(response);
 		}).fail(function(error) {
 			console.log(error);
@@ -25,7 +25,7 @@ var Application = {
 
 		var Territories = Backbone.PageableCollection.extend({
 			model: Territory,
-			url: '/data/territories.json',
+			url: '/_api/territories.json',
 			state: {
 				pageSize: 20
 			},

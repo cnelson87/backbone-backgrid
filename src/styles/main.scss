@@ -1,0 +1,22 @@
+//
+// MAIN
+// -----------------------------------------------------
+
+
+// configuration
+@import "./config/variables";
+@import "./config/mixins";
+
+// global styles
+@import "./global/base";
+@import "./global/breakpoints";
+@import "./global/utilities";
+@import "./global/forms";
+@import "./global/layout";
+
+// custom components
+@import "./backgrid/backgrid";
+@import "./backgrid/backgrid-filter";
+@import "./backgrid/backgrid-moment-cell";
+@import "./backgrid/backgrid-select-all";
+@import "./backgrid/backgrid-paginator";

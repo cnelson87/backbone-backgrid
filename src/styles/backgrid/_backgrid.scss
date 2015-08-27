@@ -21,9 +21,7 @@
   max-width: 100%;
   background-color: transparent;
   border-collapse: collapse;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  border-radius: 4px;
 }
 
 .backgrid th,
@@ -89,21 +87,10 @@
   background-color: rgba(82, 168, 236, 0.1);
   outline: 1px solid rgba(82, 168, 236, 0.8);
   outline-offset: -1px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition-duration: 200ms;
-     -moz-transition-duration: 200ms;
-       -o-transition-duration: 200ms;
-          transition-duration: 200ms;
-  -webkit-transition-property: width, outline, background-color;
-     -moz-transition-property: width, outline, background-color;
-       -o-transition-property: width, outline, background-color;
-          transition-property: width, outline, background-color;
-  -webkit-transition-timing-function: ease-in-out;
-     -moz-transition-timing-function: ease-in-out;
-       -o-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
+  box-sizing: border-box;
+  transition-duration: 200ms;
+  transition-property: width, outline, background-color;
+  transition-timing-function: ease-in-out;
 }
 
 .backgrid td.editor input[type=text] {
@@ -115,14 +102,10 @@
   background-color: transparent;
   border: 0;
   outline: 0;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: none;
+  box-sizing: border-box;
   -webkit-appearance: none;
-     -moz-appearance: none;
+  -moz-appearance: none;
 }
 
 .backgrid td.editor input[type=text]::-ms-clear {
@@ -213,12 +196,8 @@
   background-color: white;
   border: 0;
   outline: 0;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: none;
+  box-sizing: border-box;
 }
 
 .backgrid .select-cell.editor select[multiple] {
